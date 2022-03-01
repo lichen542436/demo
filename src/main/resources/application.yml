@@ -1,0 +1,29 @@
+server:
+  prot: 8080
+
+
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yixuan?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+    username: root
+    password: 123456
+    #initialize: false\
+  thymeleaf:
+    cache: false
+
+mybatis:
+  type-aliases-package: com.yixuan.pojo   #   别名
+  mapper-locations: classpath:/mapper/*.xml   #   xml文件
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+file:
+name: log/log.log
+level:
+root: info
+wuhobin: debug

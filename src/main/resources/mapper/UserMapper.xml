@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixuan.mapper.UserMapper">
+    <select id="userList" resultType="com.yixuan.pojo.Users">
+        select * from users
+    </select>
+
+    <select id="getUserListByName" parameterType="com.yixuan.pojo.query.UsersQuery" resultType="com.yixuan.pojo.Users">
+        select * from users
+        where 1 = 1
+            <if test="name != null and name != ''">
+            and 'name' like concat('%',#{name},'%')
+            </if>
+    </select>
+</mapper>
